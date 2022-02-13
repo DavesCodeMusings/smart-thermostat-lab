@@ -7,12 +7,13 @@ In this lab, we'll start with a simple, one-line program to print Hello World! i
 Here's a Hello World in Python:
 
 ```
-print("Hello World!")
+message = "Hello World!"
+print(message)
 ```
 
 It works exactly the same in MicroPython. Here's how you can run it:
 
-1. Copy and paste the line above into the Thoni editor window.
+1. Copy and paste the code above into the Thoni editor window.
 2. Save the file as hello.py
    * In Thonny, click File > Save As.
    * Choose _MicroPython Device_ when asked where to save.
@@ -20,6 +21,8 @@ It works exactly the same in MicroPython. Here's how you can run it:
    * Click OK.
 3. Click the green play button icon to run the program.
 4. Wait a moment then verify you see Hello World! displayed at the bottom in Thonny's shell window.
+
+Figure out how you could change the message to say "Hello MicroPython!" and update the code.
 
 ## Printing to the Built-In Display
 Writing Hello World to the microcontroller's built-in display requires a few extra lines of code. That's because there's a bit of work to do setting up the display before it's ready to receive any text.
@@ -29,9 +32,10 @@ In its simplest form, Hello World on the microcontroller looks like this:
 ```
 from machine import Pin, SoftI2C
 from ssd1306 import SSD1306_I2C
+message = "Hello MicroPython!"
 i2c = SoftI2C(scl=Pin(4), sda=Pin(5))
 oled = SSD1306_I2C(128, 64, i2c)
-oled.text('Hello World!', 0, 0)
+oled.text(message, 0, 0)
 oled.show()
 ```
 
@@ -78,6 +82,10 @@ This tells MicroPython we'll be using code from a package called _machine_ and s
 
 This is pulling in the SSD1306_I2C function from the ssd1306 package. You can probably guess from the name _SSD1306_I2C_ that this function is for interacting with the SSD1306 display driver using I2C communication.
 
+`message = "Hello MicroPython!"`
+
+This sets the message variable to _Hello MicroPython!_ It's the only line re-used from the first Hello World! example. 
+
 `i2c = SoftI2C(scl=Pin(4), sda=Pin(5))`
 
 This line sets up I2C communication using pins 4 (clock) and 5 (data) on the microcontroller. `i2c` is an object variable that represents the particular I2C bus being used (It's possible to have more than one and with different pins.) The `i2c` variable is needed in the next line of the program so the SSD_1306_I2C function knows where to send its I2C commands and data.
@@ -95,27 +103,18 @@ Now that everything is set up, we can finally send a Hello World message to the 
 This final step copies the framebuffer memory to the display memory so the mesage will show on the display.
 
 ## Displaying CPU Temperature
-So far, we've had a good introduction to using MicroPython and the microcotroller's built-in display, but the program doesn't do anything very useful yet. Since we're building a smart thermostat, it should really be displaying temperature instead of Hello World!.
+Since we're building a smart thermostat, we'll need to figure out how to read data, like temperature, and show it on the display.
 
 The ESP32 has a built-in temperature sensor that we can read. Here's the code to do it:
 
 ```
-
+from esp32 import raw_temperature
+cpu_temp = raw_temperature()
+message = "CPU temp: {:d} F".format(cpu_temp)
+print(message)
 ```
 
+Create a new editor window in Thonny (File > New) and paste the code above into the blank window. Save the program as _cpu-temperature.py_ and run it.
 
-## Next Steps
-By this point, you know how to write text to the built-in display on your microcontroller using MicroPython. Now, you can experiment with different messages and different row and column positions. Here are some hints to help:
+The CPU temperature will be displayed in the Thonny shell window, along with _F_ to indictate Fahrenheit.
 
-* Each character in the message is 8 pixels high and 8 pixels wide.
-* The row and column refer to the top left corner of the first character in the message.
-* You can clear the display with `oled.fill(0)` which will fill the entire display with color 0 (black.)
-
-Some things to explore include:
-
-* How many rows of text will fit on the display?
-* How can you print a message on the very last line?
-* How can you print a single character in the upper right corner?
-* What happens when you print two messages at the same coordinates?
-
-Additional code can be found in [oled-test.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/oled-test.py).
