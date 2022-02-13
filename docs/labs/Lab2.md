@@ -37,7 +37,18 @@ Since the DHT11 is not built into the microcontroller board like the OLED displa
 This tiny bit of code will read the temperature value from the DHT11 and display it in the Thonny shell window.
 
 ```
+# Read temperature and humidity from DHT11.
 
+from dht import DHT11
+DHT11_DATA = 6  # Set pin number to whatever GPIO the DHT11 data line is attached to.
+dht11 = DHT11(Pin(DHT11_DATA))
+
+# DHT11 reads temperature in Celsius.
+dht11.measure()  # If DHT11 is not attached, program will hang at this line!
+temp_celsius = dht11.temperature()
+temp_fahrenheit = 1.8 * temp_celsius + 32  # F = 9/5 C + 32
+
+print("Temp: {:d}".format(temp_fahrenheit))
 ```
 
 Use what you've learned in the previous lab to take bits of this code and incorporate them into your previous work. The resulting code should read temperature from the DHT11 sensor and display it on the OLED.
