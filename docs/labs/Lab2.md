@@ -35,7 +35,7 @@ Since the DHT11 is not built onto the microcontroller board like the OLED displa
 
 _Pin Diagram for a WeMOS LOLIN32 OLED clone from manufacturer HiLetGo_
 
-Notice that most pins have multiple labels assigned to them. Depending on how they are configured in software, these pins can perform multiple functions. Choosing a pin labeled only as GPIO can help avoid contention with these functions later on.
+Notice that most pins have more than one label assigned to them. Depending on how they are configured in software, these pins can perform multiple functions. Choosing a pin labeled only as GPIO can help avoid contention with these functions later on.
 
 The only two GPIO only pins are GPIO_5 and GPIO_16. You might recall GPIO_5 is being used for I2C, so that leaves GPIO_16 as the one pin that's least likely to be used for something else. We'll use GPIO_16 for the DHT11's data connection.
 
