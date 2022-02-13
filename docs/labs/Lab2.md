@@ -112,11 +112,14 @@ Now that you know how to use a loop and a delay in your MicroPython code, it's t
 
 Here's what you'll need to do:
 
-1. Determine where the while loop should start and what code it should include.
-2. Add a delay in the while loop to pause for some number of seconds.
-3. Clear the screen between updates.
+1. Start with the existing code that reads DHT11 temperature and writes it to the OLED display.
+2. Determine where the while loop should start and what code it should include.
+3. Add a delay in the while loop to pause for some number of seconds.
+4. Clear the screen between updates.
 
-> Clearing the screen was briefly mentioned at the end of Lab 1. You can do it with `oled.fill(0)` to fill the display with all black.
+> Clearing the screen can be done using the statement `oled.fill(0)` to fill the OLED with the background color.
+
+You can test your program by wrapping your hands around the DHT11 to warm it up. Verify the temperature on the display rises as you do this.
 
 If you get stuck, look at [dht11-temperature-humidity.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/solutions/dht11-temperature-humidity.py)
 
