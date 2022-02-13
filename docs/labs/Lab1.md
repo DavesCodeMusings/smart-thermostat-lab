@@ -39,7 +39,7 @@ oled.text(message, 0, 0)
 oled.show()
 ```
 
-But, when you try to run it the first time, you'll get an error in the Thonny editor's shell window that looks like this:
+You can copy this to a new Thonny editor window and save it as _hello-oled.py_ But, when you try to run it the first time, you'll get an error in the Thonny editor's shell window that looks like this:
 
 ```
 Traceback (most recent call last):
@@ -69,7 +69,7 @@ _Figure 1: Results of searching for ssd1306_
 
 _Figure 2: The MicroPython version of ssd1306_
 
-## A Detailed Look at MicroPython Hello World
+## A Detailed Look at MicroPython Hello World OLED
 The program above takes six lines to display Hello World. Most examples of Hello World, including standard Python, only need one line. So why does MicroPython need six?
 
 Let's look at the program, line by line.
@@ -118,3 +118,7 @@ Create a new editor window in Thonny (File > New) and paste the code above into 
 
 The CPU temperature will be displayed in the Thonny shell window, along with _F_ to indictate Fahrenheit.
 
+Now that you know how to read CPU temperature, figure out what parts of _cpu-temperature.py_ can be combined with _hello-oled.py_ to display the CPU temperature on the built-in display.
+
+## Next Steps
+CPU temperature is the same as ambient room temperature, so the ESP32's internal temperature sensor can't be used to determine if the heat should be switched on or off. To do that, we'll need to get the temperature from a sensor that's not sitting right next to the warm CPU. The next lab shows how a commonly available DHT11 temperature and humidity sensor can be used for this task.
