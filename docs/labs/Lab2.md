@@ -40,7 +40,7 @@ This bit of code will read the temperature value from the DHT11 and display it i
 # Read temperature and humidity from DHT11.
 
 from dht import DHT11
-DHT11_DATA = 6  # Set pin number to whatever GPIO the DHT11 data line is attached to.
+DHT11_DATA = 16  # Set pin number to whatever GPIO the DHT11 data line is attached to.
 dht11 = DHT11(Pin(DHT11_DATA))
 
 # DHT11 reads temperature in Celsius.
