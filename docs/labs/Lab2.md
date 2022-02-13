@@ -124,3 +124,4 @@ You can test your program by wrapping your hands around the DHT11 to warm it up.
 If you get stuck, look at [dht11-temperature-humidity.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/solutions/dht11-temperature-humidity.py)
 
 ## Next Steps
+Now that we can measure the room's temperature, we can compare it to the temperature we're trying to maintain to decide if the heat needs to run or not. We should also have a way to adjust that temperature setting. Both of those things will be covered in the next lab where we'll use the ESP32's touch inputs to move the set temperature up or down.
