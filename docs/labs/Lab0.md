@@ -2,7 +2,7 @@
 This can be done ahead of time to allow students more time to concentrate on coding, or it can be used as a way to introduce students to the Thonny editor and its tools for flashing firmware on newly purchased devices.
 
 ## Installing the USB Device Driver
-As a prerequisite, you'll need a device driver for your operating system (on Windows, at least.) The WeMos LOLIN32 and clones use the Silicon Labs CP210x chip for USB. The steps below detail how to get the CP210x driver installed.
+As a prerequisite, you'll need a device driver for your operating system (on Windows, at least.) The WeMos LOLIN32 and clones use the Silicon Labs CP210x chip for USB communication. The steps below detail how to get the CP210x driver installed.
 
 > The web site where you get the drivers uses a pop-up window for the download. Your browser may ask for confirmation or may block it outright unless you add an exception.
 
@@ -10,19 +10,21 @@ As a prerequisite, you'll need a device driver for your operating system (on Win
 2. Click the _Downloads_ tab.
 3. Download the driver for your OS and open the ZIP file.
 4. Follow the instructions in the Release Notes text file to install the driver.
+5. Run Device Manager (if using Windows) and look under Ports (COM & LPT) to verify the Silicon Labs CP210x is found.
 
 ## Installing Thonny
 Visit [thonny.org](https://thonny.org/) to download the installer program for the Thonny editor. Installation is like any other program. For more detailed instructions, see the [Thonny Wiki](https://github.com/thonny/thonny/wiki/) where you will find articles for installing on Windows, macOS, and Linux operating systems.
 
-> If you are using a Raspberry Pi 400 as the host computer, the Raspberry Pi OS already has Thonny installed, so you can skip this step.
+> If you are using a Raspberry Pi 400 as the host computer, the Raspberry Pi OS already has Thonny installed, so you can skip Thonny installation, but you still need to configure it and install firmware as shown in the following steps.
 
 ## Downloading MicroPython Firmware
 You'll need to install MicroPython on the microcontroller. This is a one-time task.
 
-1. On the host computer, go to the [ESP32 firmware download](https://micropython.org/download/esp32/) on the MicroPython web site.
-2. Skip over the installation instructions and scroll down to Firmware Releases.
-3. Find the latest .bin file (v1.18 at the time this document was written.)
-4. Download the file, making a note of where it's saved.
+1. Plug the ESP32 into the host computer.
+2. Go to the MicroPython web site's [ESP32 firmware download](https://micropython.org/download/esp32/).
+3. Skip over the installation instructions (Thonny makes it easier) and scroll down to Firmware Releases.
+4. Find the latest .bin file (v1.18 at the time this document was written.)
+5. Download the file, making a note of where it's saved.
 
 ## Configuring for the ESP32 Microcontroller
 Once Thonny is installed, we need to tell it about the microcontroller we're using.
