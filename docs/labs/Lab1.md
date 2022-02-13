@@ -109,12 +109,12 @@ The ESP32 has a built-in temperature sensor that we can read. Here's the code to
 
 ```
 from esp32 import raw_temperature
-cpu_temp = raw_temperature()
-message = "CPU temp: {:d} F".format(cpu_temp)
+esp32_temp = raw_temperature()
+message = "ESP32 temp: {:d} F".format(esp32_temp)
 print(message)
 ```
 
-Create a new editor window in Thonny and paste the code above into the blank window. Save the program as _cpu-temperature.py_ and run it.
+Create a new editor window in Thonny and paste the code above into the blank window. Save the program as _esp32-temperature.py_ and run it.
 
 The CPU temperature will be displayed in the Thonny shell window, along with _F_ to indictate Fahrenheit.
 
