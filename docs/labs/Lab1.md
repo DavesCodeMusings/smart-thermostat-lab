@@ -65,7 +65,7 @@ _Figure 1: Results of searching for ssd1306_
 
 _Figure 2: The MicroPython version of ssd1306_
 
-# A Detailed Look at MicroPython Hello World
+## A Detailed Look at MicroPython Hello World
 The program above takes six lines to display Hello World. Most examples of Hello World, including standard Python, only need one line. So why does MicroPython need six?
 
 Let's look at the program, line by line.
@@ -93,6 +93,16 @@ Now that everything is set up, we can finally send a Hello World message to the 
 `oled.show()`
 
 This final step copies the framebuffer memory to the display memory so the mesage will show on the display.
+
+## Displaying CPU Temperature
+So far, we've had a good introduction to using MicroPython and the microcotroller's built-in display, but the program doesn't do anything very useful yet. Since we're building a smart thermostat, it should really be displaying temperature instead of Hello World!.
+
+The ESP32 has a built-in temperature sensor that we can read. Here's the code to do it:
+
+```
+
+```
+
 
 ## Next Steps
 By this point, you know how to write text to the built-in display on your microcontroller using MicroPython. Now, you can experiment with different messages and different row and column positions. Here are some hints to help:
