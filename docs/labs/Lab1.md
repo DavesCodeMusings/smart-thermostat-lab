@@ -126,4 +126,4 @@ For an extra challenge, see if you can display Hello MicroPython! and CPU temper
 > The 0, 0 at the end of `oled.text('Hello World!', 0, 0)` indicates the X, Y coordinate where the message starts.
 
 ## Next Steps
-CPU temperature is the same as ambient room temperature, so the ESP32's internal temperature sensor can't be used to determine if the heat should be switched on or off. To do that, we'll need to get the temperature from a sensor that's not sitting right next to the warm CPU. The next lab shows how a commonly available DHT11 temperature and humidity sensor can be used for this task.
+CPU temperature is the same as ambient room temperature. The CPU temperature routinely runs over 100°F, so the ESP32's internal temperature sensor is no help when determining if the heat should be switched on or off. To do that, we'll need to get the temperature from a sensor that's not sitting right next to the hot CPU. The next lab shows how a commonly available DHT11 temperature and humidity sensor can be used for this task.
