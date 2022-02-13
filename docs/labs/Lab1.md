@@ -122,8 +122,7 @@ Now that you know how to read CPU temperature, figure out what parts of _cpu-tem
 
 For an extra challenge, see if you can display Hello MicroPython! and CPU temperature at the same time.
 
->Hint:
->
+>### Hint:
 > The 0, 0 at the end of `oled.text('Hello World!', 0, 0)` indicates the X, Y coordinate where the message starts.
 
 ## Next Steps
