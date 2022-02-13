@@ -5,7 +5,7 @@
 
 SSID = "MyAccessPoint"
 PASSWORD = "P@ssw0rd"
-TZ_OFFSET = -6
+TZ_OFFSET = -6  # Hours difference from UTC (Greenwich Mean Time)
 
 import network
 from ntptime import settime
@@ -41,6 +41,7 @@ if not wlan.isconnected():
     utc_t = "{:d}:{:02d}:{:02d}".format(utc[3], utc[4], utc[5])
     print(utc_d, utc_t, "UTC")
 
+# Calculate local time using epoch time in seconds and TZ_OFFSET (in hours) * 3600 seconds/hour.
 local = localtime(time() + TZ_OFFSET * 3600)
 local_d = "{:s}, {:d}/{:d}/{:d}".format(DAY_OF_WEEK[local[6]], local[1], local[2], local[0])
 local_t = "{:d}:{:02d}:{:02d}".format(local[3], local[4], local[5])
