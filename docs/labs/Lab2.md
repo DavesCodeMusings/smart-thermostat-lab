@@ -67,7 +67,7 @@ The while loop allows repeating a section of code. Here's an example:
 
 ```
 while (1 == 1):
-  print("Hello World!")
+    print("Hello World!")
 ```
 
 Copy this to Thonny and you'll quickly flood the shell window with lines of Hello World. When you've seen enough, click on Thonny's red stop button.
@@ -81,8 +81,8 @@ A while loop like the one above will go as fast as the CPU can manage. We can ad
 from time import sleep
 
 while (1):
-  print("Hello World!")
-  sleep(3)
+    print("Hello World!")
+    sleep(3)
 ```
 
 The example above will also run forever, filling the Thonny shell window with Hello World, just not all at once. The `sleep()` function tells the CPU to wait a number of seconds before continuing. In this case, we're using `sleep(3)`, so there's a three second pause before the loop repeats.
@@ -98,8 +98,6 @@ Here's what you'll need to do:
 
 > Clearing the screen was briefly mentioned at the end of Lab 1. You can do it with `oled.fill(0)` to fill the display with all black.
 
-If you get stuck, there is an example called [cpu-temperature.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/cpu-temperature.py) in the repository.
+If you get stuck, look at [dht11-temperature-humidity.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/solutions/dht11-temperature-humidity.py)
 
 ## Next Steps
-There are a number of functions in the MicroPython ESP32 package. You can find them in the [MicroPython documentation](https://docs.micropython.org/en/latest/library/esp32.html). Take a look at the available functions in ESP32 and also the [other built-in packages](https://docs.micropython.org/en/latest/library/) available for MicroPython. 
-there's also a [quick reference](https://docs.micropython.org/en/latest/esp32/quickref.html) that gives a lot of good information for using MicroPython on the ESP32. Don't feel like you need to understand all of this, just know where to find it when you need it.
