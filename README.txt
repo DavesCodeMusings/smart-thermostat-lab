@@ -1,0 +1,1 @@
+Screenshots for lab documents.
