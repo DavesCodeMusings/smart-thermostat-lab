@@ -127,4 +127,4 @@ For an extra challenge, see if you can display Hello MicroPython! and CPU temper
 > Hint: The 0, 0 at the end of `oled.text('Hello World!', 0, 0)` indicates the X, Y coordinate where the message starts.
 
 ## Next Steps
-ESP32 temperature is not the same as ambient room temperature. Taht should be obvious from the readings you're seeing. To measure room temperature, we'll need to use a sensor that's not sitting right next to the hot CPU. The next lab shows how a commonly available DHT11 temperature and humidity sensor can be used for this task.
+ESP32 temperature is not the same as ambient room temperature. That should be obvious from the readings you're seeing. To measure room temperature, we'll need to use a sensor that's not sitting right next to the hot CPU. The next lab shows how a commonly available DHT11 temperature and humidity sensor can be used for this task.
