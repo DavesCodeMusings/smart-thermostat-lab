@@ -102,10 +102,10 @@ Now that everything is set up, we can finally send a Hello World message to the 
 
 This final step copies the framebuffer memory to the display memory so the mesage will show on the display.
 
-## Displaying CPU Temperature
-Since we're building a smart thermostat, we'll need to figure out how to read data, like temperature, and show it on the display.
+## Displaying Temperature
+Since we're building a smart thermostat, we'll need to figure out how to read data, like temperature, and show it on the display. The ESP32 has a built-in temperature sensor that we can read.
 
-The ESP32 has a built-in temperature sensor that we can read. Here's the code to do it:
+Here's the code to do it:
 
 ```
 from esp32 import raw_temperature
@@ -116,14 +116,15 @@ print(message)
 
 Create a new editor window in Thonny and paste the code above into the blank window. Save the program as _esp32-temperature.py_ and run it.
 
-The CPU temperature will be displayed in the Thonny shell window, along with _F_ to indictate Fahrenheit.
+The temperature reading will be displayed in the Thonny shell window, along with _F_ to indictate Fahrenheit.
 
-Now that you know how to read CPU temperature, figure out what parts of _cpu-temperature.py_ can be combined with _hello-oled.py_ to display the CPU temperature on the built-in display.
+>It will read very high at 100 degrees or more. That's completely normal, because the sensor is next to the CPU that getnerates a lot of heat when it's working.
+
+Now that you know how to read temperature, figure out what parts of _esp32-temperature.py_ can be combined with _hello-oled.py_ to display the temperature on the built-in display.
 
 For an extra challenge, see if you can display Hello MicroPython! and CPU temperature at the same time.
 
->### Hint:
-> The 0, 0 at the end of `oled.text('Hello World!', 0, 0)` indicates the X, Y coordinate where the message starts.
+> Hint: The 0, 0 at the end of `oled.text('Hello World!', 0, 0)` indicates the X, Y coordinate where the message starts.
 
 ## Next Steps
-CPU temperature is the same as ambient room temperature. The CPU temperature routinely runs over 100°F, so the ESP32's internal temperature sensor is no help when determining if the heat should be switched on or off. To do that, we'll need to get the temperature from a sensor that's not sitting right next to the hot CPU. The next lab shows how a commonly available DHT11 temperature and humidity sensor can be used for this task.
+ESP32 temperature is not the same as ambient room temperature. Taht should be obvious from the readings you're seeing. To measure room temperature, we'll need to use a sensor that's not sitting right next to the hot CPU. The next lab shows how a commonly available DHT11 temperature and humidity sensor can be used for this task.
