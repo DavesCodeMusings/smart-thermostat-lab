@@ -15,7 +15,7 @@ As a prerequisite, you'll need a device driver for your operating system (on Win
 ## Installing Thonny
 Visit [thonny.org](https://thonny.org/) to download the installer program for the Thonny editor. Installation is like any other program. For more detailed instructions, see the [Thonny Wiki](https://github.com/thonny/thonny/wiki/) where you will find articles for installing on Windows, macOS, and Linux operating systems.
 
-> If you are using a Raspberry Pi 400 as the host computer, the Raspberry Pi OS already has Thonny installed, so you can skip Thonny installation, but you still need to configure it and install firmware as shown in the following steps.
+> If you are using a Raspberry Pi 400 as the host computer, the Raspberry Pi OS already has Thonny installed, so you can skip Thonny installation, but you still need to configure the ESP32 and install firmware as shown in the following steps.
 
 ## Downloading MicroPython Firmware
 You'll need to install MicroPython on the microcontroller. This is a one-time task.
