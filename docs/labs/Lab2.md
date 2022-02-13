@@ -53,7 +53,7 @@ print("Temp: {:2.0f}".format(temp_fahrenheit))
 
 Use what you've learned in the previous lab to take bits of this code and incorporate them into your previous work. The resulting code should read temperature from the DHT11 sensor and display it on the OLED. Key pieces are: the import statement, the measurement, and the Celsius to Fahrenheit conversion.
 
-If you get stuck, see the program... TODO
+If you get stuck, see the program [dht11-temperature-oneshot.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/solutions/dht11-temperature-oneshot.py)
 
 ## Enhancing
 So far, the program reads the temperature, displays it, and then... what? Nothing. It just stops. If the temperature changes, we won't know unless we rerun the program. That's not very useful, so we'll add a feature to check the temperature periodically and update the display with a new value.
