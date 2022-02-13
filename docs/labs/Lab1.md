@@ -39,7 +39,7 @@ oled.text(message, 0, 0)
 oled.show()
 ```
 
-You can copy this to a new Thonny editor window and save it as _hello-oled.py_ But, when you try to run it the first time, you'll get an error in the Thonny editor's shell window that looks like this:
+You can copy this to a new Thonny editor window (File > New) and save it as _hello-oled.py_ (File > Save As). But, when you try to run it the first time, you'll get an error in the Thonny editor's shell window that looks like this:
 
 ```
 Traceback (most recent call last):
@@ -114,7 +114,7 @@ message = "CPU temp: {:d} F".format(cpu_temp)
 print(message)
 ```
 
-Create a new editor window in Thonny (File > New) and paste the code above into the blank window. Save the program as _cpu-temperature.py_ and run it.
+Create a new editor window in Thonny and paste the code above into the blank window. Save the program as _cpu-temperature.py_ and run it.
 
 The CPU temperature will be displayed in the Thonny shell window, along with _F_ to indictate Fahrenheit.
 
