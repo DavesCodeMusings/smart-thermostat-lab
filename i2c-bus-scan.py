@@ -12,8 +12,8 @@ print('Scanning i2c bus...')
 devices = i2c.scan()
 
 if (len(devices) == 0):
-  print("No i2c device !")
+    print("No i2c device !")
 else:
-  print('Devices found:', len(devices))
-  for address in devices:  
-    print("Address: ", hex(address))
+    print('Devices found:', len(devices))
+    for address in devices:  
+        print("Address: ", hex(address))
