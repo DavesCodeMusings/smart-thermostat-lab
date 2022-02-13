@@ -110,7 +110,7 @@ Here's the code to do it:
 ```
 from esp32 import raw_temperature
 esp32_temp = raw_temperature()
-message = "ESP32 temp: {:d} F".format(esp32_temp)
+message = "ESP32 temp: {:d}F".format(esp32_temp)
 print(message)
 ```
 
