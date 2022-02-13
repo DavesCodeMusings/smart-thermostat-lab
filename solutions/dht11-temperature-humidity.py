@@ -9,7 +9,7 @@ from time import sleep
 i2c = SoftI2C(scl=Pin(4), sda=Pin(5))
 oled = SSD1306_I2C(128, 64, i2c)
 
-DHT11_DATA = 6  # Attached DHT11 to this GPIO pin or adjust accordingly.
+DHT11_DATA = 16  # Attached DHT11 to this GPIO pin or adjust accordingly.
 dht11 = DHT11(Pin(DHT11_DATA))
 
 while (1):
