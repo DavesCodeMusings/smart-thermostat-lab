@@ -34,7 +34,7 @@ Since the DHT11 is not built into the microcontroller board like the OLED displa
 
 
 ## Reading from the DHT11
-This tiny bit of code will read the temperature value from the DHT11 and display it in the Thonny shell window.
+This bit of code will read the temperature value from the DHT11 and display it in the Thonny shell window. Open a new editor window and copy the program below. Run it to show the temperature from the DHT11. Verify that it's a reasonable value (close to actual room temperature.) If not, verify your wiring.
 
 ```
 # Read temperature and humidity from DHT11.
