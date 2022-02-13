@@ -122,6 +122,8 @@ The temperature reading will be displayed in the Thonny shell window, along with
 
 Now that you know how to read temperature, figure out what parts of _esp32-temperature.py_ can be combined with _hello-oled.py_ to display the temperature on the built-in display.
 
+If you get stuck, you can take a peek at a completed [esp32-temperature.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/solutions/esp32-temperature.py) for hints.
+
 For an extra challenge, see if you can display Hello MicroPython! and CPU temperature at the same time.
 
 > Hint: The 0, 0 at the end of `oled.text('Hello World!', 0, 0)` indicates the X, Y coordinate where the message starts.
