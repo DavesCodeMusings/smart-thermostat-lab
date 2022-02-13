@@ -44,17 +44,16 @@ DHT11_DATA = 6  # Set pin number to whatever GPIO the DHT11 data line is attache
 dht11 = DHT11(Pin(DHT11_DATA))
 
 # DHT11 reads temperature in Celsius.
-dht11.measure()  # If DHT11 is not attached, program will hang at this line!
+dht11.measure()  # If DHT11 is not attached, program will abort or hang at this line!
 temp_celsius = dht11.temperature()
 temp_fahrenheit = 1.8 * temp_celsius + 32  # F = 9/5 C + 32
 
-print("Temp: {:d}".format(temp_fahrenheit))
+print("Temp: {:2.0f}".format(temp_fahrenheit))
 ```
 
-Use what you've learned in the previous lab to take bits of this code and incorporate them into your previous work. The resulting code should read temperature from the DHT11 sensor and display it on the OLED.
+Use what you've learned in the previous lab to take bits of this code and incorporate them into your previous work. The resulting code should read temperature from the DHT11 sensor and display it on the OLED. Key pieces are: the import statement, the measurement, and the Celsius to Fahrenheit conversion.
 
-
-
+If you get stuck, see the program... TODO
 
 ## Enhancing
 So far, the program reads the temperature, displays it, and then... what? Nothing. It just stops. If the temperature changes, we won't know unless we rerun the program. That's not very useful, so we'll add a feature to check the temperature periodically and update the display with a new value.
