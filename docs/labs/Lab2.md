@@ -1,129 +1,56 @@
-# Lab 2: Monitoring CPU Temperature
-This lab builds on Lab 1, displaying the temperature of the ESP32 CPU on the display rather than a Hello World message. It introduces the idea of periodically reading from sensors and updating the display. This lays the foundation needed for later labs that will read room temperature.
+# Lab 2: Measuring Temperature and Humidity
+To control the temperature of a room, we first need to measure the temperature of the room. In lab 1, we used the ESP32's built-in temperature sensor, but quickly discovered it's much better at measuring CPU temperature than room temperature. In this lab, we'll attach a sensor called the DHT11, to measure room temperature. The DHT11 can also measure relative humidity, so we can include that informataion on the thermostat display without much extra effort or expense.
 
-## Using ESP32 Package Functions
-MicroPython has a package of functions to use with the ESP32 microcontroller. One of those functions is `raw_temperature()` and it reads the CPU core temperature in degrees Fahrenheit. We'll use this new function, together with the code from Lab 1 to read the CPU temperature and show it on the built-in display.
-
-But first, here's a simple example to read CPU temperature and print it in the Thonny editor.
+## Using Lab 1 as a Starting Point
+Since we already know how to measure ESP32 temperature and write it to the built-in OLED display, we'll use that code as a basis for this lab. Sample code is show below. Yours may look different and that's fine, as long as it can read the ESP32 temperature and display it, it'll work.
 
 ```
-from esp32 import raw_temperature
-cpu_temp = raw_temperature()
-print("CPU temperature: " + str(cpu_temp) + "°F")
-```
-
-When you run the code above, the temperature does not print to the built-in display. In fact, the display will show whatever you last wrote to it, so it may be displaying Hello World at the moment. To find the temperature output, look in Thonny toward the bottom. There's a window called _Shell_ that shows the output from print statements. You should see a CPU temperature reading of around 125°F.
-
-## Sending CPU Temperature to the Display
-To write CPU temperature on the display, you'll need to adapt the Hello World example from Lab 1.
-
-### Hello World
-```
-from machine import Pin, SoftI2C
-import ssd1306
-i2c = SoftI2C(scl=Pin(4), sda=Pin(5))
-oled = ssd1306.SSD1306_I2C(128, 64, i2c)
-oled.text('Hello World!', 0, 0)
-oled.show()
-```
-
-Obviously, the trick here is to replace `oled.text('Hello World!', 0, 0)` with something that displays the CPU temperature. But, there's the additional steps of importing the esp32 package and calling the `raw_temperature()` function to read the CPU temperature. Think about how you might do this before moving on.
-
-### Hello CPU Temperature
-The first step is to import the esp32 package. This is done by addin another from/import statement for the esp32 package and the raw_temperature function.
-
-```
-from machine import Pin, SoftI2C
-import ssd1306
-from esp32 import raw_temperature
-```
-
-Next, we need to read the CPU temperature. We've already figured out how to read it in the example that prints CPU temperature in the Thonny editor window. All we need to do is copy `cpu_temp = raw_temperature()` and put it in the right place. That could be anywhere between the `from esp32 import raw_temperature` statement that makes the function available and the `oled.text` statement that shows the temperature value.
-
-Having it closer to `oled.text` will be useful later on, so we'll put it there.
-
-```
-from machine import Pin, SoftI2C
-import ssd1306
-from esp32 import raw_temperature
-i2c = SoftI2C(scl=Pin(4), sda=Pin(5))
-oled = ssd1306.SSD1306_I2C(128, 64, i2c)
-cpu_temp = raw_temperature()
-```
-
-Finally, we'll include the lines that display the value. Here's the completed example:
-
-```
-from machine import Pin, SoftI2C
-import ssd1306
-from esp32 import raw_temperature
-i2c = SoftI2C(scl=Pin(4), sda=Pin(5))
-oled = ssd1306.SSD1306_I2C(128, 64, i2c)
-cpu_temp = raw_temperature()
-oled.text("CPU temperature: " + str(cpu_temp) + "°F", 0, 0)
-oled.show()
-```
-
-Copy this to Thonny and run it, and you'll see it's probably not exactly what you expected.
-
-## Debugging
-There's a big problem with the code. Because the display width is not very big, the actual temperature reading gets cut off. One solution is to abbreviate Temperature to Temp.
-
-```
-from machine import Pin, SoftI2C
-import ssd1306
-from esp32 import raw_temperature
-i2c = SoftI2C(scl=Pin(4), sda=Pin(5))
-oled = ssd1306.SSD1306_I2C(128, 64, i2c)
-cpu_temp = raw_temperature()
-oled.text("CPU temp: " + str(cpu_temp) + "°F", 0, 0)
-oled.show()
-```
-
-Now it fits the display, but we've got a new problem. The degree symbol shows up as three blocks instead of what we got when running the first example that prints in Thonny. That's because the SSD1306 only has a limited number of characters it can display and the degree symbol is not one of them. So, we'll take it out and assume anyone looking at the display will know that some number followed by F is a temperature in Fahrenheit.
-
-```
-from machine import Pin, SoftI2C
-import ssd1306
-from esp32 import raw_temperature
-i2c = SoftI2C(scl=Pin(4), sda=Pin(5))
-oled = ssd1306.SSD1306_I2C(128, 64, i2c)
-cpu_temp = raw_temperature()
-oled.text("CPU temp: " + str(cpu_temp) + "F", 0, 0)
-oled.show()
-```
-
-## Enhancing
-So far, the program reads the CPU temperature, displays it, and then... what? Nothing. It just stops. If the CPU temperature changes, we won't know unless we rerun the program. That's not very useful, so we'll add a feature to check the temperature periodically and update the display with a new value.
-
-To do this, we'll need to learn about two things: while loops, and the sleep function. We'll also edit the code to make it easier to read and understand.
-
-Let's start with making it easier to read.
-
-```
-# Read CPU core temperature and output to built-in display.
+# Read ESP32 temperature and output to built-in display.
 
 from machine import Pin, SoftI2C
-import ssd1306
+from ssd1306 import SSD1306_I2C
 from esp32 import raw_temperature
 
 # The built-in display uses an SSD1306 controller with I2C pin 4 and 5 for clock and data, respectively.
 i2c = SoftI2C(scl=Pin(4), sda=Pin(5))
-oled = ssd1306.SSD1306_I2C(128, 64, i2c)
+oled = SSD1306_I2C(128, 64, i2c)
 
-cpu_temp = raw_temperature()
-oled.text("CPU temp: " + str(cpu_temp) + "F", 0, 0)
+oled.text("Hello World!", 0, 0)
+
+esp32_temp = raw_temperature()
+message = "ESP32 temp: {:d}F".format(esp32_temp)
+oled.text(message, 0, 10)  # Start on pixel row 10 to leave some space between text above.
 oled.show()
 ```
 
+> ### Code Comments and Blank Lines
+> The lines starting with # are comment lines. They don't tell the microcotroller to do anything, they're simply there to help a human understand what the code is doing. The comment at the top gives an overview of what the program does. Other comments describe specific parts of the program.
+> 
+> When you write comments, try to focus on the why rather than the what. For example, `# Start on pixel row 10` would explain what you're doing, but `# Start on pixel row 10 to leave some space between text above.` explains why you are doing this. This can be very helpful for anyone else who looks at your code, or for yourself in six months when you forget why you chose row 10.
+
+## Wiring the DHT11
+Since the DHT11 is not built into the microcontroller board like the OLED display, it has to be wired in.
+
+
+
+## Reading from the DHT11
+This tiny bit of code will read the temperature value from the DHT11 and display it in the Thonny shell window.
+
+```
+
+```
+
+Use what you've learned in the previous lab to take bits of this code and incorporate them into your previous work. The resulting code should read temperature from the DHT11 sensor and display it on the OLED.
+
+
+
+
+## Enhancing
+So far, the program reads the temperature, displays it, and then... what? Nothing. It just stops. If the temperature changes, we won't know unless we rerun the program. That's not very useful, so we'll add a feature to check the temperature periodically and update the display with a new value.
+
+To do this, we'll need to learn about two things: while loops, and the sleep function. We'll also edit the code to make it easier to read and understand.
 The example above is the same code, but it adds two comments (the lines preceded by #) and a few blank lines.
 
-This can make reading the code easier on your eyes, just like this document uses headings to divide sections and blank lines to separate paragraphs. And just like a document, we start with a title of sorts, describing what the code does. The next comment is like a section heading, describing the code that follows. These simple changes help make the code easier to understand and maintain.
-
-> ### Comment the Why, Not the How
-> Look at the comment about the built-in display. It describes the purpose of the next two lines, but it explains why they are included, not what they do. Once you get past your first few programs, you'll know how to use the functions that initialize the I2C bus and the SSD1306 OLED display chip. What you might not know is why pins 4 and 5 were selected. By including the why and not the how, you can help anyone who comes along later understand the decisions that went into writing your code.
-
-## Periodic Updates
 To get the code to update periodically, we'll need to add a loop. And to control how fast the updates come, we'll use a delay.
 
 The while loop allows repeating a section of code. Here's an example:
