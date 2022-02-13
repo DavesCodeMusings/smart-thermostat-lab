@@ -47,6 +47,8 @@ After Thonny is configured for the ESP32, you can use it to write the MicroPytho
 
 Progress messages will scroll by, including the percent complete. Click close when it's finished. [Figure 3]
 
+Flash firmware to all ESP32 devices you plan to use for the labs.
+
 ## Screenshots
 
 ![Interpreter Options](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/docs/labs/screenshots/options-interpreter.png)
