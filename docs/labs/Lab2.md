@@ -29,9 +29,19 @@ oled.show()
 > When you write comments, try to focus on the why rather than the what. For example, `# Start on pixel row 10` would explain what you're doing, but `# Start on pixel row 10 to leave some space between text above.` explains why you are doing this. This can be very helpful for anyone else who looks at your code, or for yourself in six months when you forget why you chose row 10.
 
 ## Wiring the DHT11
-Since the DHT11 is not built into the microcontroller board like the OLED display, it has to be wired in.
+Since the DHT11 is not built onto the microcontroller board like the OLED display, it has to be wired in separately. For the DHT11, we'll need 3.3V power, ground, and a GPIO pin for data. The diagram below shows the pin connections for the microcontroller.
 
+![HiLetGo ESP32 OLED](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/docs/images/HiLetGo_ESP32_OLED_Pins.png)
 
+_Pin Diagram for a WeMOS LOLIN32 OLED clone from manufacturer HiLetGo_
+
+Notice that most pins have multiple labels assigned to them. Depending on how they are configured in software, these pins can perform multiple functions. Choosing a pin labeled only as GPIO can help avoid contention with these functions later on.
+
+The only two GPIO only pins are GPIO_5 and GPIO_16. You might recall GPIO_5 is being used for I2C, so that leaves GPIO_16 as the one pin that's least likely to be used for something else. We'll use GPIO_16 for the DHT11's data connection.
+
+The power and ground connections are easier. Just choose a red 3V3 connection and a black ground connection. Be sure to use 3V3 and not 5V.
+
+> 3V3 is just a shorthand way of saying 3.3V
 
 ## Reading from the DHT11
 This bit of code will read the temperature value from the DHT11 and display it in the Thonny shell window. Open a new editor window and copy the program below. Run it to show the temperature from the DHT11. Verify that it's a reasonable value (close to actual room temperature.) If not, verify your wiring.
