@@ -39,7 +39,7 @@ Notice that most pins have more than one label assigned to them. Depending on ho
 
 The only two GPIO only pins are GPIO_5 and GPIO_16. You might recall GPIO_5 is being used for I2C, so that leaves GPIO_16 as the one pin that's least likely to be used for something else. We'll use GPIO_16 for the DHT11's data connection.
 
-The power and ground connections are easier. Just choose a red 3V3 connection and a black ground connection. Be sure to use 3V3 and not 5V.
+The power and ground connections are easier. Just choose a red 3.3 volt (3V3) connection and a black ground (GND) connection. Either one of the two 3V3 connections and any of the three available GND connections will work. Just be sure to use 3V3 and not 5V.
 
 > 3V3 is just a shorthand way of saying 3.3V
 
@@ -65,7 +65,7 @@ Use what you've learned in the previous lab to take bits of this code and incorp
 
 If you get stuck, see the program [dht11-temperature-oneshot.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/solutions/dht11-temperature-oneshot.py)
 
-## Enhancing
+## Updating the Display
 So far, the program reads the temperature, displays it, and then... what? Nothing. It just stops. If the temperature changes, we won't know unless we rerun the program. That's not very useful, so we'll add a feature to check the temperature periodically and update the display with a new value.
 
 To do this, we'll need to learn about two things: while loops, and the sleep function. We'll also edit the code to make it easier to read and understand.
@@ -76,14 +76,22 @@ To get the code to update periodically, we'll need to add a loop. And to control
 The while loop allows repeating a section of code. Here's an example:
 
 ```
-while (1 == 1):
+x = 5
+while (x > 0):
+    print("Hello World!")
+    x = x - 1
+```
+
+The code above will repeat `print("Hello World!")` exacly five times. It uses the variable _x_ to keep track of how many times the loop has been repeated. It keeps going as long as x is greater than zero.
+
+We can also make a while loop that repeats forever by removing all the lines dealing with the counter variable _x_ and writing the while loop like the example below.
+
+```
+while (1)
     print("Hello World!")
 ```
 
 Copy this to Thonny and you'll quickly flood the shell window with lines of Hello World. When you've seen enough, click on Thonny's red stop button.
-
-> ### Conditional Expression
-> While loops run until the expression in parentheses is true. This is called a conditional expression. Normally, you'll see a while loop more like `while (x > 0):` or any comparison other than 1 == 1. One equals one is always true, so the while loop just keeps going until we stop the program or pull the plug. You can also simplfy the expression to just 1, as we'll see in the upcoming example.
 
 A while loop like the one above will go as fast as the CPU can manage. We can add a delay using the `sleep()` function that will drastically slow the output to one line every few seconds. Here's an example:
 
@@ -96,6 +104,8 @@ while (1):
 ```
 
 The example above will also run forever, filling the Thonny shell window with Hello World, just not all at once. The `sleep()` function tells the CPU to wait a number of seconds before continuing. In this case, we're using `sleep(3)`, so there's a three second pause before the loop repeats.
+
+
 
 ## Putting It All Together
 Now that you know how to use a loop and a delay in your MicroPython code, it's time to add these things into the CPU temperature monitor so that it can update the display periodically.
