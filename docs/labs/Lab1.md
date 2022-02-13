@@ -120,7 +120,11 @@ The CPU temperature will be displayed in the Thonny shell window, along with _F_
 
 Now that you know how to read CPU temperature, figure out what parts of _cpu-temperature.py_ can be combined with _hello-oled.py_ to display the CPU temperature on the built-in display.
 
-For an extra challenge, see if you can display Hello MicroPython! and CPU temperature at the same time. Hint: the 0, 0 at the end of `oled.text('Hello World!', 0, 0)` indicates the X, Y coordinate where the message starts.
+For an extra challenge, see if you can display Hello MicroPython! and CPU temperature at the same time.
+
+>Hint:
+>
+> The 0, 0 at the end of `oled.text('Hello World!', 0, 0)` indicates the X, Y coordinate where the message starts.
 
 ## Next Steps
 CPU temperature is the same as ambient room temperature, so the ESP32's internal temperature sensor can't be used to determine if the heat should be switched on or off. To do that, we'll need to get the temperature from a sensor that's not sitting right next to the warm CPU. The next lab shows how a commonly available DHT11 temperature and humidity sensor can be used for this task.
