@@ -1,6 +1,8 @@
 # Lab 3: Using Touch Inputs
 The thermostat with no way to adjust it up or down is not going to win many friends. In this lab, we'll enhance the code to have an adjustable set point at which the heat turns on or off. We'll also use the ESP32's touch sensitive pins as a way to detect when someone wants to adjust the temperature up or down.
 
+## Reading Touch Inputs
+
 ```
 # Read ESP32 touch inputs and display values
 
@@ -38,4 +40,7 @@ if (touch_input < touch_threshold):
 
 Incorporate a comparrison like this into your code to determine if the _Up_ input is being pressed. Do the same for the _Down_ input. Once it's working like you expect, remove the line that prints the input values and only print a message when Up or Down is pressed.
 
+If you get stuck, look at [touch-input-up-down.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/solutions/touch-input-up-down.py)
+
+## Adjusting the Thermostat Up or Down
 
