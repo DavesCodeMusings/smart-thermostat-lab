@@ -87,4 +87,4 @@ MicroPy:  1.18.0
 Close Thonny and unplug the ESP32 from the host computer. Plug it in again and verify the OLED display shows the same information.
 
 ## Next Steps
-You're ready to start building a smart thermostat. Start with Lab 1.
+You're ready to start building a smart thermostat. Start with an introduction to MicroPython in [Lab 1](Lab1.md).
