@@ -29,13 +29,17 @@ oled.show()
 > When you write comments, try to focus on the why rather than the what. For example, `# Start on pixel row 10` would explain what you're doing, but `# Start on pixel row 10 to leave some space between text above.` explains why you are doing this. This can be very helpful for anyone else who looks at your code, or for yourself in six months when you forget why you chose row 10.
 
 ## Wiring the DHT11
-Since the DHT11 is not built onto the microcontroller board like the OLED display, it has to be wired in separately. For the DHT11, we'll need 3.3V power, ground, and a GPIO pin for data. The diagram below shows the pin connections for the microcontroller.
+Since the DHT11 is not built onto the microcontroller board like the OLED display, it has to be wired in separately. For the DHT11, we'll need 3.3V power, ground, and a GPIO pin for data. The diagrams below shows the pin connections for the DHT11 and for the microcontroller.
+
+![DHT11](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/docs/images/DHT11_Pins.png)
+
+_Pin Diagram for DHT11 Temperature / Humidity Sensor_
 
 ![HiLetGo ESP32 OLED](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/docs/images/HiLetGo_ESP32_OLED_Pins.png)
 
 _Pin Diagram for a WeMOS LOLIN32 OLED clone from manufacturer HiLetGo_
 
-Notice that most pins have more than one label assigned to them. Depending on how they are configured in software, these pins can perform multiple functions. Choosing a pin labeled only as GPIO can help avoid contention with these functions later on.
+Notice that most pins on the microcontroller have more than one label assigned to them. Depending on how they are configured in software, these pins can perform multiple functions. Choosing a pin labeled only as GPIO can help avoid contention with these functions later on.
 
 The only two GPIO only pins are GPIO_5 and GPIO_16. You might recall GPIO_5 is being used for I2C, so that leaves GPIO_16 as the one pin that's least likely to be used for something else. We'll use GPIO_16 for the DHT11's data connection.
 
