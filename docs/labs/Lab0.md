@@ -62,3 +62,29 @@ _Figure 2: Selections for firmware installation_
 ![Firmware Flash Complete](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/docs/labs/screenshots/firmware-done.png)
 
 _Figure 3: Firmware installation complete_
+
+## Testing
+To make sure everything is ready for the labs, run a simple test program.
+
+1. Attach the ESP32 to the host machine.
+2. Open Thonny.
+3. Choose File > Open from the Thonny menu.
+4. Select MicroPython Device as the source.
+5. Open boot.py
+6. Replace the contents of boot.py with the [boot.py](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/boot.py)
+7. Save and run.
+
+Verify the display looks similar to the example below. This should be displayed in the Thonny shell window and on the OLED display.
+
+```
+CPU:       esp32
+Speed:    160MHz
+RAM:       102KB
+Flash:       4MB
+MicroPy:  1.18.0
+```
+
+Close Thonny and unplug the ESP32 from the host computer. Plug it in again and verify the OLED display shows the same information.
+
+## Next Steps
+You're ready to start building a smart thermostat. Start with Lab 1.
