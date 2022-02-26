@@ -22,7 +22,7 @@ A series of labs to build a smart thermostat using MicroPython. Get started by v
 * [Thony Editor](https://thonny.org/) installed on host computer.
 * [MicroPython firmware for ESP32](https://micropython.org/download/esp32/)
 
-## Network connectivity
+## Network access requirements
 * The host computer will need access to the internet for downloading host software, MicroPython firmware and modules.
 * The microcontroller will need WiFi access for the internet of things (IoT) labs.
 
