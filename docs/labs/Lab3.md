@@ -20,3 +20,4 @@ Upload
 
 You should see the program inside the Scratch editor.
 
+![screenshot](https://github.com/DavesCodeMusings/smart-thermostat-lab/blob/main/examples/thermostat_simple.png)
