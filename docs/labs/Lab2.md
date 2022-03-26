@@ -1,5 +1,5 @@
 # Lab 2: Measuring Temperature and Humidity
-To control the temperature of a room, we first need to measure the temperature of the room. In lab 1, we used the ESP32's built-in temperature sensor, but quickly discovered it's much better at measuring CPU temperature than room temperature. In this lab, we'll attach a sensor called the DHT11, to measure room temperature. The DHT11 can also measure relative humidity, so we can include that informataion on the thermostat display without much extra effort or expense.
+To control the temperature of a room, we first need to measure the temperature of the room. In lab 1, we used the ESP32's built-in temperature sensor, but quickly discovered it's much better at measuring CPU temperature than room temperature. In this lab, we'll attach a sensor called the DHT11, to measure room temperature. The DHT11 can also measure relative humidity, so we can include that information on the thermostat display without much extra effort or expense.
 
 ## Using Lab 1 as a Starting Point
 Since we already know how to measure ESP32 temperature and write it to the built-in OLED display, we'll use that code as a basis for this lab. Sample code is show below. Yours may look different and that's fine, as long as it can read the ESP32 temperature and display it, it'll work.
