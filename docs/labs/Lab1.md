@@ -57,9 +57,9 @@ You can use Thonny to find and install packages. Here's how:
 3. Click on the _micropython-ssd1306_ search result.
 4. Click _Install_. [Figure 2]
 
-Run the program again and verify that Hello World! shows up on the ESP32's display.
+You'll find screenshots below to guide you through the installation.
 
-## Screenshots
+## Screenshots for ssd1306 Module Install
 
 ![Search Results](screenshots/ssd1306-package.png)
 
@@ -68,6 +68,9 @@ _Figure 1: Results of searching for ssd1306_
 ![MicroPPython ssd1306](screenshots/ssd1306-micropython.png)
 
 _Figure 2: The MicroPython version of ssd1306_
+
+## Writing Hello World on the OLED Display
+Now that the module is installed, run the program again and verify that Hello World! shows up on the ESP32's display.
 
 ## A Detailed Look at MicroPython Hello World OLED
 The program above takes six lines to display Hello World. Most examples of Hello World, including standard Python, only need one line. So why does MicroPython need six?
