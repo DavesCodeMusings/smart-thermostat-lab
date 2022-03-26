@@ -1,2 +1,2 @@
-# Lab 4: Lowering the Thermostat on a Schedule
+# Lowering the Thermostat on a Schedule
 The ESP has a built-in clock that can track time in hours and minutes, just like the clock on the wall. In this lab, we'll use that clock to lower the thermostat set point during the hours when people are sleeping. Since the ESP32 has no way to get the current time, part of the lab will involve connecting to WiFi and reading the date and time from a network time server.
