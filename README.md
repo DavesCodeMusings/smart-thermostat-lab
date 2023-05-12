@@ -14,8 +14,8 @@ A series of labs to build a smart thermostat using MicroPython. Get started by v
 * Host computer with USB port capable of downloading and installing software below.
 
 > Chromebooks used in schools often have policies that prevent installation of software making them unsuitable
-> as a host computer. Windows, Linux, or Mac should work, but the examples you will find in here use a Windows
-> PC.
+> as a host computer. Windows, Linux, or Mac should work, but check with the school's computer specialist to
+> be sure you can install software and download firmware files from the internet.
 
 ## Software requirements
 * [Thony Editor](https://thonny.org/) installed on host computer.
