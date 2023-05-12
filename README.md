@@ -10,7 +10,7 @@ A series of labs to build a smart thermostat using MicroPython. Get started by v
 ## Hardware requirements
 * WeMos Lolin32 OLED ESP32 microcontroller ([or similar clone](http://www.hiletgo.com/ProductDetail/1997554.html)).
 * Micro-B USB cable for attaching microcontroller board to host computer.
-* DHT11 temperature / humidity sensor.
+* DHT11 (or DHT22) temperature / humidity sensor.
 * Host computer with USB port capable of downloading and installing software below.
 
 > Chromebooks used in schools often have policies that prevent installation of software making them unsuitable
