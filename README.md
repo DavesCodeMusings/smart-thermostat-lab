@@ -13,10 +13,9 @@ A series of labs to build a smart thermostat using MicroPython. Get started by v
 * DHT11 temperature / humidity sensor.
 * Host computer with USB port capable of downloading and installing software below.
 
-> Chromebooks used in schools often have policies that prevent installation of software making them unsuitable.
-> A [Raspberry Pi 400](https://www.raspberrypi.com/products/raspberry-pi-400/?variant=raspberry-pi-400-us-kit)
-> kit has everything needed except the HDMI monitor.
-> [Other items](https://www.amazon.com/hz/wishlist/ls/3DOVN9NREQHIB?ref_=wl_share) can be found online as well.
+> Chromebooks used in schools often have policies that prevent installation of software making them unsuitable
+> as a host computer. Windows, Linux, or Mac should work, but the examples you will find in here use a Windows
+> PC.
 
 ## Software requirements
 * [Thony Editor](https://thonny.org/) installed on host computer.
